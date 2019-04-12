@@ -12,3 +12,7 @@ Simple project to show the best practices to coding using spring-boot
   > @ResponseStatus(HttpStatus.NOT_FOUND)
 - All Requests
 1. Set up a pattern to response messages, we can use a ExceptionHadler to make it
+  1.1. It's recommended set three field:
+  > date - to show date operation
+  > message - 
+  > detail
