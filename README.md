@@ -1,4 +1,4 @@
-# spring-boot Best Practices
+# Spring-boot Best Practices
 Simple project to show the best practices to coding using spring-boot
 
 ### HTTPS Requests
