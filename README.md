@@ -10,3 +10,5 @@ Simple project to show the best practices to coding using spring-boot
 1. When this resource doesn't find result it should return the HttpStatus 404.
   1.1. It's possible to annotade your custum exception, for example:
   > @ResponseStatus(HttpStatus.NOT_FOUND)
+- All Requests
+1. Set up a pattern to response messages, we can use a ExceptionHadler to make it
