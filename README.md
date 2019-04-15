@@ -35,9 +35,10 @@ Simple project to show the best practices to coding using spring-boot
 
 2. To show the message when validation error is trigged , you need overwrite the handleMethodArgumentNotValid on your ExceptionHadler
 
+```
    @Override
        protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
            ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "Validation Failed.", ex.getBindingResult().toString());
            return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
        }
-
+```
