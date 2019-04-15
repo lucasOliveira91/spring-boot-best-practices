@@ -20,6 +20,24 @@ Simple project to show the best practices to coding using spring-boot
 1.1. It's recommended set three field:
 > date - to show date operation
 
-> message - 
+> message - friedly message for user
 
-> detail
+> detail -  datail from exception
+
+- Validation
+1. User the @Valid to validate your fields to request, and annotate your DTO with validate annotarion from JavaX validation API.
+
+>  public ResponseEntity<Object> createUser(@RequestBody @Valid UserDTO userDTO)
+
+>  @Size(min = 2, message = "Name sould have at least 2 caracters.")
+
+>  @Past
+
+2. To show the message when validation error is trigged , you need overwrite the handleMethodArgumentNotValid on your ExceptionHadler
+
+   @Override
+       protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+           ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "Validation Failed.", ex.getBindingResult().toString());
+           return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+       }
+
