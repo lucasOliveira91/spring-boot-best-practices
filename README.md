@@ -41,3 +41,10 @@ Simple project to show the best practices to coding using spring-boot
            return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
        }
 
+
+- HATEOAS
+It's used to returno some links in the endpoint result.
+
+- Internationalization
+
+
