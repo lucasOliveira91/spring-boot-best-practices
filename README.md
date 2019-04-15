@@ -27,24 +27,29 @@ Simple project to show the best practices to coding using spring-boot
 - Validation
 1. User the @Valid to validate your fields to request, and annotate your DTO with validate annotarion from JavaX validation API.
 
->  public ResponseEntity<Object> createUser(@RequestBody @Valid UserDTO userDTO)
+`public ResponseEntity<Object> createUser(@RequestBody @Valid UserDTO userDTO)`
 
->  @Size(min = 2, message = "Name sould have at least 2 caracters.")
+  `@Size(min = 2, message = "Name sould have at least 2 caracters.")`
 
->  @Past
+ ` @Past `
+
 
 2. To show the message when validation error is trigged , you need overwrite the handleMethodArgumentNotValid on your ExceptionHadler
 
+```java
    @Override
        protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
            ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "Validation Failed.", ex.getBindingResult().toString());
            return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
        }
+```
 
 
 - HATEOAS
 It's used to returno some links in the endpoint result.
 
 - Internationalization
+
+
 
 
