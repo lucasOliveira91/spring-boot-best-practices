@@ -3,6 +3,7 @@ package com.example.bestpratices.resources;
 import com.example.bestpratices.resources.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -19,9 +20,12 @@ public class HelloWorldResource {
 
     @GetMapping("/internationalized")
     public String getHelloWorldInternationalized(@RequestHeader(name="Accept-Language", required = false)  Locale locale) {
-        return messageSource.getMessage("good.morning.message"
-                ,null
-                , locale);
+        return messageSource.getMessage("good.morning.message",null, locale);
+    }
+
+    @GetMapping("/internationalized-context")
+    public String getHelloWorldInternationalizedContext() {
+        return messageSource.getMessage("good.morning.message",null, LocaleContextHolder.getLocale());
     }
 
 }

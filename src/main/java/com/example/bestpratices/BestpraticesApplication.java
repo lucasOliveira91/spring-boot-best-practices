@@ -3,9 +3,8 @@ package com.example.bestpratices;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 import java.util.Locale;
 
@@ -16,18 +15,22 @@ public class BestpraticesApplication {
 		SpringApplication.run(BestpraticesApplication.class, args);
 	}
 
+// config internationalization via parameters
+//	@Bean
+//	public LocaleResolver localeResolver() {
+//		SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+//		localeResolver.setDefaultLocale(Locale.US);
+//		return localeResolver;
+//	}
 
+	/**
+	 * Config i8n via context, it doen't need to passa parameter locale.
+	 * @return
+	 */
 	@Bean
 	public LocaleResolver localeResolver() {
-		SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+		AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
 		localeResolver.setDefaultLocale(Locale.US);
 		return localeResolver;
-	}
-
-	@Bean
-	public ResourceBundleMessageSource bundleMessageSource() {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
 	}
 }
