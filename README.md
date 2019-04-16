@@ -50,6 +50,7 @@ It's used to returno some links in the endpoint result.
 
 - Internationalization
 
-
+- Swagger
+User swagger to documentate your application
 
 
