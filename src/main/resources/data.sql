@@ -1,0 +1,1 @@
+INSERT INTO USER VALUES(null, sysdate(), 'Lucas');
